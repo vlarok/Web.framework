@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using StructureMap;
+using Web.framework.Infrastructure;
 
 namespace Web.framework
 {
@@ -15,7 +17,9 @@ namespace Web.framework
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);  
+            DependencyResolver.SetResolver(new StruructureMapDependencyResolver());
+
         }
     }
 }
